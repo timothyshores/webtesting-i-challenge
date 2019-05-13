@@ -1,14 +1,18 @@
 const { repair, succeed, fail } = require('./enhancer.js');
 
 describe('enhancer.js', () => {
-    describe('items have a name', () => {
-        describe('Items have a name', () => {
-            const actual = { name: 'Sword'}
-            expect(actual).toHaveProperty('name')
+    describe('items have a name, durability and enhancement', () => {
+        it('items have a name', () => {
+            const actual = { name: 'Sword' }
+            expect({ name: 'Sword' }).toHaveProperty('name')
         });
-        describe('Items have durability', () => {
+        it('items have durability', () => {
             const actual = { durability: 10 }
             expect(actual).toHaveProperty('durability')
+        });
+        it('items have enhancement', () => {
+            const actual = { enhancement: 20 }
+            expect(actual).toHaveProperty('enhancement')
         });
     });
     describe('repair() method', () => {
