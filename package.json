@@ -10,5 +10,5 @@
     },
     "scripts": {
         "test": "jest --watch"
-    },
+    }
 }
