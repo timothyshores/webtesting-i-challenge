@@ -4,7 +4,7 @@ describe('enhancer.js', () => {
     describe('items have a name, durability and enhancement', () => {
         it('items have a name', () => {
             const actual = { name: 'Sword' }
-            expect({ name: 'Sword' }).toHaveProperty('name')
+            expect(actual).toHaveProperty('name')
         });
         it('items have durability', () => {
             const actual = { durability: 10 }
@@ -13,6 +13,16 @@ describe('enhancer.js', () => {
         it('items have enhancement', () => {
             const actual = { enhancement: 20 }
             expect(actual).toHaveProperty('enhancement')
+        });
+    });
+    describe("item's enhancement is a number", () => {
+        it("item's enhancement is a number", () => {
+            const actual1 = { enhancement: 10 }
+            expect(typeof actual1.enhancement).toBe('number');
+            const actual2 = { enhancement: '10' }
+            expect(typeof actual2.enhancement).not.toBe('number');
+            const actual3 = { enhancement: [10] }
+            expect(typeof actual3.enhancement).not.toBe('number');
         });
     });
     describe('repair() method', () => {
