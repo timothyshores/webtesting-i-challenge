@@ -10,7 +10,8 @@ function repair(item) {
 }
 
 function succeed(item) {
-    return { ...item };
+    const enhancement = item.enhancement + 1;
+    return { ...item, enhancement };
 }
 
 function fail(item) {
