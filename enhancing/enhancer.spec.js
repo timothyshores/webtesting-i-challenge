@@ -15,7 +15,7 @@ describe('enhancer.js', () => {
             expect(actual).toHaveProperty('enhancement')
         });
     });
-    describe("item's enhancement is a number", () => {
+    describe("item's enhancement is a number from 0 to 20", () => {
         it("item's enhancement is a number", () => {
             const actual1 = { enhancement: 10 }
             expect(typeof actual1.enhancement).toBe('number');
@@ -23,6 +23,12 @@ describe('enhancer.js', () => {
             expect(typeof actual2.enhancement).not.toBe('number');
             const actual3 = { enhancement: [10] }
             expect(typeof actual3.enhancement).not.toBe('number');
+        });
+        it("item's enhancement is a number from 0 to 20", () => {
+            const actual1 = { enhancement: 0 }
+            expect(actual1.enhancement).toBeGreaterThanOrEqual(0);
+            const actual2 = { enhancement: 20 }
+            expect(actual2.enhancement).toBeLessThanOrEqual(20);
         });
     });
     describe('repair() method', () => {
