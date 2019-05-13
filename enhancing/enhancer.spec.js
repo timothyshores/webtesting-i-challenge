@@ -23,22 +23,40 @@ describe('enhancer.js', () => {
             expect(typeof actual2.enhancement).not.toBe('number');
             const actual3 = { enhancement: [10] }
             expect(typeof actual3.enhancement).not.toBe('number');
+            const actual4 = { enhancement: {} }
+            expect(typeof actual4.enhancement).not.toBe('number');
         });
         it("item's enhancement is a number from 0 to 20", () => {
             const actual1 = { enhancement: 0 }
             expect(actual1.enhancement).toBeGreaterThanOrEqual(0);
             const actual2 = { enhancement: 20 }
             expect(actual2.enhancement).toBeLessThanOrEqual(20);
+            const actual3 = { enhancement: 21 }
+            expect(actual3.enhancement).not.toBeLessThanOrEqual(20);
+            const actual4 = { enhancement: -1 }
+            expect(actual4.enhancement).not.toBeGreaterThanOrEqual(0);
         });
     });
     describe("item's durability is a number from 0 to 100", () => {
-        it("item's enhancement is a number", () => {
+        it("item's durability is a number", () => {
             const actual1 = { durability: 10 }
             expect(typeof actual1.durability).toBe('number');
             const actual2 = { durability: '10' }
             expect(typeof actual2.durability).not.toBe('number');
             const actual3 = { durability: [10] }
             expect(typeof actual3.durability).not.toBe('number');
+            const actual4 = { durability: {} }
+            expect(typeof actual4.durability).not.toBe('number');
+        });
+        it("item's durability is a number from 0 to 100", () => {
+            const actual1 = { durability: 0 }
+            expect(actual1.durability).toBeGreaterThanOrEqual(0);
+            const actual2 = { durability: 100 }
+            expect(actual2.durability).toBeLessThanOrEqual(100);
+            const actual3 = { durability: 101 }
+            expect(actual3.durability).not.toBeLessThanOrEqual(100);
+            const actual4 = { durability: -1 }
+            expect(actual4.durability).not.toBeGreaterThanOrEqual(0);
         });
     });
     describe('repair() method', () => {
