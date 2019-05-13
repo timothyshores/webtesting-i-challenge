@@ -19,5 +19,11 @@ describe('enhancer.js', () => {
             const actual = succeed(item);
             expect(actual).toEqual(expected);
         });
+        it('if the item enhancement level is 20, the enhancement level is not changed.', () => {
+            const item = { enhancement: 20 }
+            const expected = { enhancement: 20 }
+            const actual = succeed(item);
+            expect(actual).toEqual(expected);
+        });
     });
 });

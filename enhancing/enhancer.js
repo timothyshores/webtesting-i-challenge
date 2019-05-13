@@ -10,7 +10,7 @@ function repair(item) {
 }
 
 function succeed(item) {
-    const enhancement = item.enhancement + 1;
+    const enhancement = item.enhancement === 20 ? 20 : ++item.enhancement;
     return { ...item, enhancement };
 }
 
