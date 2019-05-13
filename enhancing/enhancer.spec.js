@@ -31,6 +31,16 @@ describe('enhancer.js', () => {
             expect(actual2.enhancement).toBeLessThanOrEqual(20);
         });
     });
+    describe("item's durability is a number from 0 to 100", () => {
+        it("item's enhancement is a number", () => {
+            const actual1 = { durability: 10 }
+            expect(typeof actual1.durability).toBe('number');
+            const actual2 = { durability: '10' }
+            expect(typeof actual2.durability).not.toBe('number');
+            const actual3 = { durability: [10] }
+            expect(typeof actual3.durability).not.toBe('number');
+        });
+    });
     describe('repair() method', () => {
         const item = { durability: 0 }
         const expected = { durability: 100 }
