@@ -15,12 +15,13 @@ function succeed(item) {
 }
 
 function fail(item) {
-    if (item.enhancement >= 15) {
-        item.enhancement = item.enhancement - 10;
-    } else {
-        item.enhancement = item.enhancement - 5
-    }
-    return { ...item };
+    const enhancement = item.enhancement >= 16
+        ? item.enhancement - 1
+        : item.enhancement;
+    const durability = item.enhancement >= 15
+        ? item.durability - 10
+        : item.durability - 5;
+    return { ...item, enhancement, durability };
 }
 
 

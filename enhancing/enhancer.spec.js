@@ -34,14 +34,14 @@ describe('enhancer.js', () => {
     });
     describe('fail() method', () => {
         it("if the item's enhancement is less than 15, the durability of the item is decreased by 5", () => {
-            const item = { enhancement: 10 };
-            const expected = { enhancement: 5 };
+            const item = { enhancement: 10, durability: 5 };
+            const expected = { enhancement: 10, durability: 0};
             const actual = fail(item);
             expect(actual).toEqual(expected);
         });
         it("if the item's enhancement is 15 or more, the durability of the item is decreased by 10", () => {
-            const item = { enhancement: 15 };
-            const expected = { enhancement: 5 };
+            const item = { enhancement: 15, durability: 10 };
+            const expected = { enhancement: 15, durability: 0 };
             const actual = fail(item);
             expect(actual).toEqual(expected);
         });
