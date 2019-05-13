@@ -1,4 +1,4 @@
-const { repair, succeed, fail } = require('./enhancer.js');
+const { repair, succeed, fail, get } = require('./enhancer.js');
 
 describe('enhancer.js', () => {
     describe('items have a name, durability and enhancement', () => {
@@ -101,6 +101,14 @@ describe('enhancer.js', () => {
             const item = { enhancement: 15, durability: 10 };
             const expected = { enhancement: 15, durability: 0 };
             const actual = fail(item);
+            expect(actual).toEqual(expected);
+        });
+    });
+    describe('get() method', () => {
+        it("if the enhancement level is 0, the the name is not modified.", () => {
+            const item = { name: 'Valyrian Steel Sword', enhancement: 0 };
+            const expected = { name: 'Valyrian Steel Sword', enhancement: 0 };
+            const actual = get(item);
             expect(actual).toEqual(expected);
         });
     });
