@@ -39,5 +39,11 @@ describe('enhancer.js', () => {
             const actual = fail(item);
             expect(actual).toEqual(expected);
         });
+        it("if the item's enhancement is 15 or more, the durability of the item is decreased by 10", () => {
+            const item = { enhancement: 15 };
+            const expected = { enhancement: 5 };
+            const actual = fail(item);
+            expect(actual).toEqual(expected);
+        });
     });
 });
