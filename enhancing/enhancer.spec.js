@@ -14,14 +14,20 @@ describe('enhancer.js', () => {
     });
     describe('success() method', () => {
         it('increases the item\'s enhancement by 1 ', () => {
-            const item = { enhancement: 0 }   
-            const expected = { enhancement: 1 }
+            const item = { enhancement: 0 };
+            const expected = { enhancement: 1 };
             const actual = succeed(item);
             expect(actual).toEqual(expected);
         });
         it('if the item enhancement level is 20, the enhancement level is not changed.', () => {
-            const item = { enhancement: 20 }
-            const expected = { enhancement: 20 }
+            const item = { enhancement: 20 };
+            const expected = { enhancement: 20 };
+            const actual = succeed(item);
+            expect(actual).toEqual(expected);
+        });
+        it('does not change the durability of the item', () => {
+            const item = { enhancement: 0, durability: 100 };
+            const expected = { enhancement: 1, durability: 100 };
             const actual = succeed(item);
             expect(actual).toEqual(expected);
         });
