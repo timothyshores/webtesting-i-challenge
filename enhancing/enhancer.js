@@ -15,7 +15,8 @@ function succeed(item) {
 }
 
 function fail(item) {
-    return { ...item };
+    const enhancement = item.enhancement < 15 ? item.enhancement - 5 : item.enhancement;
+    return { ...item, enhancement };
 }
 
 
