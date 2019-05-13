@@ -1,6 +1,12 @@
 const { repair, succeed, fail } = require('./enhancer.js');
 
 describe('enhancer.js', () => {
+    describe('items have a name', () => {
+        it('Items have a name', () => {
+            const actual = { name: 'Sword'}
+            expect(actual).toHaveProperty('name')
+        });
+    });
     describe('repair() method', () => {
         const item = { durability: 0 }
         const expected = { durability: 100 }
@@ -35,7 +41,7 @@ describe('enhancer.js', () => {
     describe('fail() method', () => {
         it("if the item's enhancement is less than 15, the durability of the item is decreased by 5", () => {
             const item = { enhancement: 10, durability: 5 };
-            const expected = { enhancement: 10, durability: 0};
+            const expected = { enhancement: 10, durability: 0 };
             const actual = fail(item);
             expect(actual).toEqual(expected);
         });
